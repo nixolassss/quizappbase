@@ -112,6 +112,23 @@ header {
         color: var(--white);
     }
 }
+.alternativas label#correta {
+    outline: 3px solid var(--gren);
+    
+    & span {
+        background: var(--gren);
+        color: var(--white);
+    }
+}
+.alternativas label#errada {
+    outline: 3px solid var(--red);
+    
+    & span {
+        background: var(--red);
+        color: var(--white);
+    }
+}
+
 .alternativas input {
     display: none;
 
@@ -180,6 +197,7 @@ main {
  }
 
 @media(min-width: 1100px){
+    
     .tema {
         gap: 16px;
     }

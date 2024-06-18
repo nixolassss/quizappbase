@@ -9,6 +9,9 @@ let quiz ={}
 let pontos = 0
 let pergunta = 1
 
+let resposta = ""
+let idInputResposta = ""
+
 botaoTema.addEventListener("click", () => {
     trocarTema( body, botaoTema)
 })
@@ -75,7 +78,7 @@ function montarPergunta(){
                         </label>
 
                         <label for="alternativa_b">
-                            <input type="radio" id="alternativa_b name="alternativa">
+                             <input type="radio" id="alternativa_b" name="alternativa">
                             <div>
                                 <span>B</span>
                                 ${
@@ -85,7 +88,7 @@ function montarPergunta(){
                         </label>
 
                         <label for="alternativa_c">
-                            <input type="radio" id="alternativa_c name="alternativa">
+                            <input type="radio" id="alternativa_c" name="alternativa">
                             <div>
                                 <span>C</span>
                                 ${
@@ -95,7 +98,7 @@ function montarPergunta(){
                         </label>
 
                         <label for="alternativa_d">
-                            <input type="radio" id="alternativa_d name="alternativa">
+                             <input type="radio" id="alternativa_d" name="alternativa">
                             <div>
                                 <span>D</span>
                                 ${
@@ -114,10 +117,19 @@ function alterarSinais(texto){
     return texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")
 }
 
+function guardarResposta(evento){
+    resposta = evento.target.value
+    idInputResposta = evento.target.id
+}
 
 async function iniciar(){
     alterarAssunto()
     await buscarPerguntas()
     montarPergunta()
+
+    const inputsResposta = document.querySelectorAll(".alternativa input")
+    inputsResposta.forEach(input =>{
+        input.addEventListener("click", guardarResposta)
+    })
 }
 iniciar()

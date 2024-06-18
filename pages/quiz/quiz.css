@@ -7,6 +7,8 @@
 }
 :root {
     --bg-color: #f4f6fa;
+    --span:#f4f6fa;
+    --color-span : #626c7f;
     --purple: #a729f5;
     --purple-hover: rgba(176, 71, 241, 0.6);
     --secundary-text-color: #626c7f;
@@ -25,12 +27,17 @@
 }
 body.escuro {
     --bg-color: #313e51;
+    --color-span: #313e51;
     --bg-mobile: url(./assets/images/pattern-background-mobile-dark.svg);
     --bg-desktop: url(./assets/images/pattern-background-desktop-dark.svg);
     --primary-text-color:#FFF;
     --button-bg: #3b4d66;
     --shadow: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
     --secundary-text-color: #abc1e1;
+
+    & .assunto h1 {
+        color: var(--white);
+    }
     
 }
 body {
@@ -151,13 +158,13 @@ header {
 .alternativas div span {
     width: 40px;
     height: 40px;
-    background: var(--bg-color);
+    background: var(--span);
     display: block;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    color: var(--secundary-text-color);
+    color: var(--color-span);
     flex-shrink: 0;
 }
 .alternativas button {
